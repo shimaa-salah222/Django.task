@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create</title>
+</head>
+<body>
+ <div style="border: solid 2px; margin-left: 400px; padding: 5px; justify-content: center; width: 400px; background-color:beige;">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Book Name:</label>
+          <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+<br>
+<br>
+<select class="form-select" name="auther" aria-label="Default select example">
+  <label for="">auther</label>
+  <option selected disabled>Open this select auther</option>
+  {%for auther in authers%}
+  <option value="{{auther.id}}">{{auther}}</option>
+
+  {% endfor%}
+
+</select>
+        <br>
+<br>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">num_of_pages</label>
+          <input type="number" name="num_of_pages" class="form-control" id="exampleInputPassword1">
+        </div>
+        <br>
+<br>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">price</label>
+          <input type="number" name="price" class="form-control" id="exampleInputPassword1">
+        </div>
+        <br>
+<br>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">cover</label>
+          <input type="file" name="cover" class="form-control" id="exampleInputPassword1">
+        </div>
+        <br>
+<br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+ </div>
+    
+</body>
+</html>
